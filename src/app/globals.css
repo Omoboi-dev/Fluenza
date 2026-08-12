@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #101a33;
+  --color-woad: #24379b;
+  --color-dye: #4a5fd4;
+  --color-mist: #c9cfe4;
+  --color-chalk: #edeff5;
+  --color-paper: #ffffff;
+  --color-marigold: #f5a524;
+  --color-coral: #f2545b;
+  --color-leaf: #17916b;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-chalk);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Selvage: the bound striped edge of a woven band. */
+.selvage {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-woad) 0 3px,
+    transparent 3px 7px
+  );
+}
+
+@keyframes weave-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-marigold) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-marigold) 0%, transparent);
+  }
+}
+
+.weave-in {
+  animation: weave-in 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.breathe {
+  animation: breathe 2.4s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-marigold);
+  outline-offset: 2px;
+}
