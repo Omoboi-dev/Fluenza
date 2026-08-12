@@ -1,78 +1,65 @@
-# Gist
+# Fluenza 🇩🇪
 
-Learn a language in three minutes a day. Working name, easy to change.
+Fluenza is an interactive, AI-powered German language learning application built to take absolute beginners from zero to A1 fluency. 
 
-## Run it
+By combining a structured curriculum with a conversational AI Brain (powered by Google's Gemini), Fluenza offers a modern, highly engaging way to master the German language without the traditional textbook grind.
 
-```bash
-pnpm install
-pnpm dev
-```
+## ✨ Features
 
-Open http://localhost:3000. The app redirects to `/learn`.
+- **📚 Zero-to-A1 Curriculum**: A carefully crafted syllabus covering the absolute basics (Alphabet, Numbers, Greetings), core mechanics (Der/Die/Das, Verbs), and everyday vocabulary (Family, Food, Directions).
+- **🃏 Interactive Flashcards**: Beautifully animated flashcards that flip to reveal translations and examples.
+- **🗣️ Native Pronunciation (TTS)**: Integrated with the browser's Web Speech API. Click "Hear it" on any flashcard to hear the perfect native German pronunciation.
+- **🤖 Practice with AI**: At the end of every lesson, you can instantly jump into a roleplay conversation with the Fluenza AI Tutor to practice exactly what you just learned.
+- **🎙️ Seamless Voice Auto-Play**: The AI Tutor reads its responses out loud automatically, seamlessly switching between English and German voices mid-sentence for a flawless bilingual experience.
+- **💅 Modern UX/UI**: Built with Framer Motion and Tailwind CSS for a premium, app-like feel with smooth transitions and glassmorphic elements.
 
-No database is needed yet. Every screen renders from `src/lib/content/courses.ts`.
+## 🛠️ Tech Stack
 
-## What is here (phase 0)
+- **Framework**: [Next.js](https://nextjs.org/) (React)
+- **AI Brain**: [Google Gemini Pro API](https://aistudio.google.com/) (`@google/generative-ai`)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Speech**: Native Browser Web Speech API (`SpeechSynthesis`)
 
-The shell and the design system, with real content in place of filler.
+## 🚀 Getting Started
 
-```
-src/
-  app/
-    (app)/            the four tabs, sharing one layout
-      learn/          course map, the home screen
-      challenge/
-      ranks/
-      me/             profile and the rewards balance
-    layout.tsx        fonts and metadata
-    globals.css       design tokens
-  components/
-    Nav.tsx           bottom tabs on phone, left rail on desktop
-    TopStrip.tsx      language, streak, hearts
-    CourseMap.tsx     the woven course map
-    Icons.tsx
-  lib/content/
-    types.ts          Language > Course > Unit > Lesson > Exercise
-    courses.ts        placeholder seed content
-  db/
-    schema.ts         full Drizzle schema for every phase
-    index.ts          client, reads DATABASE_URL
-```
+### Prerequisites
+1. Node.js (v18+)
+2. pnpm (recommended) or npm
+3. A free [Google Gemini API Key](https://aistudio.google.com/app/apikey)
 
-## Design
+### Installation
 
-The look comes from adire, the Yoruba indigo resist dye cloth. Deep indigo and
-chalk rather than the app white and lime everyone else uses.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Omoboi-dev/Fluenza.git
+   cd Fluenza
+   ```
 
-The course map is the one loud element. Each unit is a woven band with a bound
-selvage edge, and each lesson is a block in it: undyed while locked, marigold
-for the one you are on, dyed indigo with a resist pattern once finished. You can
-see how far you have got from across the room.
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
 
-Everything else stays quiet so that reads.
+3. **Set up Environment Variables:**
+   Create a `.env.local` file in the root directory and add your Gemini API key:
+   ```env
+   GEMINI_API_KEY=your_api_key_here
+   ```
 
-Tokens live in `globals.css`. Colors are `ink`, `woad`, `dye`, `mist`, `chalk`,
-`paper`, `marigold`, `coral`, `leaf`. Fonts are `font-display` (Bricolage
-Grotesque), `font-body` (Figtree) and `font-mono` (DM Mono).
+4. **Start the development server:**
+   ```bash
+   pnpm dev
+   ```
 
-## Rewards
+5. **Open the app:**
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser to start learning German!
 
-Rewards accrue in `reward_ledger` as plain numbers, so finishing a lesson is
-instant and free. A wallet is created quietly at signup and USDC only moves
-onchain when someone taps Cash out. The learner never sees an address or a
-recovery phrase. The Me screen is the entire crypto surface.
+## 🗺️ Roadmap / Coming Soon
+- **🎤 Speech Recognition**: Practice your own pronunciation using the microphone.
+- **📊 Progress Tracking**: Database integration to track learned vocabulary and daily streaks.
+- **🏆 Challenges Page**: Daily gamified challenges and quizzes.
 
-## Next
-
-1. Content generation script, one course end to end
-2. The lesson player, exercise kinds one to four, XP, hearts, streak
-3. Install to home screen, offline lessons, streak reminder
-4. Auth, database, wallet creation, cash out
-5. Challenges and leagues on real data
-
-## Notes
-
-- The Yoruba content in `courses.ts` was written by hand as a placeholder and
-  needs a native speaker to check it before anyone learns from it.
-- The language picker, Play now, and the settings rows are not wired up yet.
+## 📄 License
+MIT License
